@@ -6,6 +6,7 @@ jobs:
     job-1:
         runs-on: ubuntu-latest
         steps:
+          
          - uses: actions/checkout@v4
            name: checkout the code
 
@@ -24,6 +25,7 @@ jobs:
 
          - name: terraform planing
            run: terraform plan
+         
 
          - name: terraform apply 
            run: terraform apply -auto-approve
