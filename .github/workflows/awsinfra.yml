@@ -1,0 +1,29 @@
+name: github ci pipeline workflow 
+
+on: push
+
+jobs:
+    job-1:
+        runs-on: ubuntu-latest
+        steps:
+         - uses: actions/checkout@v4
+           name: checkout the code
+
+         - uses: hashicorp/setup-terraform@v1
+           with: 
+             Terraform_version: 1.7        
+    
+         - name: terraform init
+           run: terraform init
+
+         - name: terraform format check
+           run: terraform fmt -check
+
+         - name: terraform validation
+           run: terraform validate
+
+         - name: terraform planing
+           run: terraform plan
+
+         - name: terraform apply 
+           run: terraform apply -auto-approve
